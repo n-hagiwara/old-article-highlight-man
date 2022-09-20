@@ -1,0 +1,10 @@
+{
+  "name": "古記事ハイライトマン",
+  "description": "Googleの検索結果で更新日時が古いページを強調します。",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "content_scripts": [{
+    "matches": ["https://www.google.com/search?*"],
+    "js": ["changeBackground.js"]
+  }]
+}
