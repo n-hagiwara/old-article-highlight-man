@@ -8,39 +8,54 @@ const updateAt = (content) => {
   return span ? span.textContent : null;
 }
 
-const backgroundColor = (updateAt) => {
+const backgroundColor = async(updateAt) => {
   if(!updateAt){
     return 'inherit';
   }
 
-  const oldest = new Date;
-  oldest.setFullYear(oldest.getFullYear() - 5);
-  const older = new Date
-  older.setFullYear(older.getFullYear() - 2);
+  return await new Promise(resolve => {chrome.storage.sync.get({
+    old1: {year: 5},
+    old2: {year: 2}
+  }, (setting) => {
+    const oldest = new Date;
+    oldest.setFullYear(oldest.getFullYear() - setting.old1["year"]);
+    const older = new Date;
+    older.setFullYear(older.getFullYear() - setting.old2["year"]);
 
-  if(updateAt < oldest){
-    return '#ffb7b7';
-  }else if(updateAt < older){
-    return '#ffffb7';
-  }else{
-    return 'inherit';
-  }
+    if(updateAt < oldest){
+      resolve('#ffb7b7');
+    }else if(updateAt < older){
+      resolve('#ffffb7');
+    }else{
+      resolve('inherit');
+    }
+  })});
 }
 
-const renderPage = () =>{
+const renderPage = async() =>{
   const results = Array.prototype.slice.call(document.getElementsByClassName("g"));
-  results.forEach((result)=>{
+  for await (const result of results){
     const date = updateAt(result);
     if (date) {
-      result.style.backgroundColor = backgroundColor(new Date(date));
+      result.style.backgroundColor = await backgroundColor(new Date(date));
     }
-  })
+  };
 
-  // レイアウトの都合上、「他の人はこちらも検索」欄を表示しない
-  const others_also_search = Array.prototype.slice.call(document.querySelectorAll("[id^='eob_']"));
-  others_also_search.forEach((item)=>{
-    item.style.display = 'none';
-  });
+  render_others_also_search();
 };
+
+const render_others_also_search = () => {
+  // 設定『他の人はこちらも検索」を非表示』にチェックをつけたら「他の人はこちらも検索」欄を表示しない
+  chrome.storage.sync.get({
+    hiddenOtherSearch: false
+  }, (setting) => {
+    if(setting.hiddenOtherSearch){
+      const others_also_search = Array.prototype.slice.call(document.querySelectorAll("[id^='eob_']"));
+      others_also_search.forEach((item)=>{
+        item.style.display = 'none';
+      });
+    }
+  });
+}
 
 renderPage();
