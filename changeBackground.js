@@ -33,7 +33,7 @@ const backgroundColor = async(updateAt) => {
 }
 
 const renderPage = async() =>{
-  const results = Array.prototype.slice.call(document.getElementsByClassName("g"));
+  const results = Array.prototype.slice.call(document.getElementsByClassName("kvH3mc BToiNc UK95Uc"));
   for await (const result of results){
     const date = updateAt(result);
     if (date) {
