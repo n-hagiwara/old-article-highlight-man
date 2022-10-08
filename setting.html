@@ -12,29 +12,30 @@
       <h3>設定</h3>
       <p>古い順に設定してください。</p>
       <form>
-        <div id="form-1">
-          <div class="form-margin">
-            1.
-            <div class="indent line-margin">
-              <label>ハイライト化範囲</label>
-            </div>
-            <div class="indent ui input line-margin">
-              <input type="number" id="year-1" class="number-form"/>年以前
-            </div>
-          </div>
-        </div>
-        <div id="form-2">
-          <div class="form-margin">
-            2.
-            <div class="indent line-margin">
-              <label>ハイライト化範囲</label>
-            </div>
-            <div class="indent ui input line-margin">
-              <input type="number" id="year-2" class="number-form"/>年以前
-            </div>
-          </div>
-        </div>
-        </div>
+        <table border="0" cellpadding="5">
+          <tr>
+            <td rowspan="2" valign="top">1.</td>
+            <td>ハイライト化範囲</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="ui input number-form">
+                <input type="number" id="year-1" class="number-input"/>年以前
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="2" valign="top">2.</td>
+            <td>ハイライト化範囲</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="ui input number-form">
+                <input type="number" id="year-2" class="number-input"/>年以前
+              </div>
+            </td>
+          </tr>
+        </table>
         <div class="ui checkbox form-margin">
           <input type="checkbox" id="hidden-other-search"></input>
           <label >「他の人はこちらも検索」を非表示</label>
