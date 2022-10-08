@@ -1,18 +1,50 @@
-<div>
-  <ol>
-    <li>
-      <input type="number" id="year-1" />年以前を赤色で表示
-    </li>
-    <li>
-      <input type="number" id="year-2" />年以前を黄色で表示
-    </li>
-  </ol>
-</div>
-<div>
-  <input type="checkbox" id="hidden-other-search">
-    「他の人はこちらも検索」を非表示
-  </input>
-</div>
-<button id="save">保存</button>
-<label id="message"></label>
-<script src="options.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="semantic/semantic.min.css" />
+    <script src="jquery/jquery-3.6.1.min.js"></script>
+    <script src="semantic/semantic.min.js"></script>
+    <link rel="stylesheet" href="setting.css" />
+  </head>
+  <body>
+    <div>
+      <h3>設定</h3>
+      <p>古い順に設定してください。</p>
+      <form>
+        <div id="form-1">
+          <div class="form-margin">
+            1.
+            <div class="indent line-margin">
+              <label>ハイライト化範囲</label>
+            </div>
+            <div class="indent ui input line-margin">
+              <input type="number" id="year-1" class="number-form"/>年以前
+            </div>
+          </div>
+        </div>
+        <div id="form-2">
+          <div class="form-margin">
+            2.
+            <div class="indent line-margin">
+              <label>ハイライト化範囲</label>
+            </div>
+            <div class="indent ui input line-margin">
+              <input type="number" id="year-2" class="number-form"/>年以前
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="ui checkbox form-margin">
+          <input type="checkbox" id="hidden-other-search"></input>
+          <label >「他の人はこちらも検索」を非表示</label>
+        </div>
+        <div>
+          <button id="save" class="ui primary button form-margin">保存</button>
+          <label id="message"></label>
+        </div>
+      </form>
+    </div>
+    <script src="setting.js"></script>
+  </body>
+</html>

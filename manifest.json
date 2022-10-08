@@ -3,13 +3,13 @@
   "description": "Googleの検索結果で更新日時が古いページを強調します。",
   "version": "1.0.0",
   "manifest_version": 3,
-  "permissions": ["storage", "storage"],
+  "permissions": ["storage"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "setting.html"
   },
-  "options_page": "options.html",
+  "options_page": "setting.html",
   "content_scripts": [{
     "matches": ["https://www.google.com/search?*"],
-    "js": ["changeBackground.js"]
+    "js": ["jquery/jquery-3.6.1.min.js", "changeBackground.js"]
   }]
 }

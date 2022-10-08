@@ -1,0 +1,19 @@
+body{
+  width: 300px;
+}
+.form-margin{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.line-margin{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.indent{
+  display: block;
+  margin-left: 15px;
+}
+.number-form{
+  width: 100px;
+}
