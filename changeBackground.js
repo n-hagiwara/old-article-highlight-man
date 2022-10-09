@@ -14,8 +14,8 @@ const backgroundColor = async(updateAt) => {
   }
 
   return await new Promise(resolve => {chrome.storage.sync.get({
-    old1: {year: 5},
-    old2: {year: 2}
+    old1: {year: 5, color: "#ffb7b7"},
+    old2: {year: 2, color: "#ffffb7"},
   }, (setting) => {
     const oldest = new Date;
     oldest.setFullYear(oldest.getFullYear() - setting.old1["year"]);
@@ -23,9 +23,9 @@ const backgroundColor = async(updateAt) => {
     older.setFullYear(older.getFullYear() - setting.old2["year"]);
 
     if(updateAt < oldest){
-      resolve('#ffb7b7');
+      resolve(setting.old1["color"]);
     }else if(updateAt < older){
-      resolve('#ffffb7');
+      resolve(setting.old2["color"]);
     }else{
       resolve('inherit');
     }

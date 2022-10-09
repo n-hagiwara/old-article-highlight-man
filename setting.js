@@ -1,6 +1,6 @@
 const save_options = () => {
-  const old1 = {year: document.getElementById('year-1').value};
-  const old2 = {year: document.getElementById('year-2').value};
+  const old1 = {year: document.getElementById('year-1').value, color: document.getElementById('color-1').value};
+  const old2 = {year: document.getElementById('year-2').value, color: document.getElementById('color-2').value};
 
   const hiddenOtherSearch = document.getElementById('hidden-other-search').checked;
   chrome.storage.sync.set({
@@ -19,12 +19,14 @@ const save_options = () => {
 const restore_options = () => {
   // デフォルト値の設定
   chrome.storage.sync.get({
-    old1: {year: 5},
-    old2: {year: 2},
+    old1: {year: 5, color: "#ffb7b7"},
+    old2: {year: 2, color: "#ffffb7"},
     hiddenOtherSearch: false
   }, (setting) => {
     document.getElementById('year-1').value = setting.old1["year"];
     document.getElementById('year-2').value = setting.old2["year"];
+    document.getElementById('color-1').value = setting.old1["color"];
+    document.getElementById('color-2').value = setting.old2["color"];
     document.getElementById('hidden-other-search').checked = setting.hiddenOtherSearch;
   });
 }
