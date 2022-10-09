@@ -14,10 +14,6 @@ body{
   display: block;
   margin-left: 15px;
 }
-.number-form{
-  display: inline-block !important;
-  vertical-align: middle !important;
-}
 .number-input{
   width: 70px;
 }
