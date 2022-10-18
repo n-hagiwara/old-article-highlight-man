@@ -1,9 +1,9 @@
 ## 古記事ハイライトマン
 Googleの検索結果で更新日時が古いページを強調するChrome拡張機能です。
-![スクリーンショット 2022-10-16 16 45 03](https://user-images.githubusercontent.com/108502312/196342183-ac8d4da8-0fbc-441d-860a-23a140fae034.png)
+<img src="https://user-images.githubusercontent.com/108502312/196342183-ac8d4da8-0fbc-441d-860a-23a140fae034.png" width="70%" hright="70%">
 
 ## バージョン
-jQuery: 3.6.1
+jQuery: 3.6.1  
 Semantic UI: 2.4.1
 
 ## 使い方
