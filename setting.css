@@ -1,11 +1,14 @@
 body{
-  width: 300px;
+  width: 350px;
+  height: 350px;
+}
+.setting{
+  margin: 10px;
 }
 .form-margin{
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 .line-margin{
   margin-top: 5px;
   margin-bottom: 5px;
