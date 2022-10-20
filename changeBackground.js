@@ -41,10 +41,10 @@ const renderPage = async() =>{
     }
   };
 
-  render_others_also_search();
+  renderOthersAlsoSearch();
 };
 
-const render_others_also_search = () => {
+const renderOthersAlsoSearch = () => {
   // 設定『他の人はこちらも検索」を非表示』にチェックをつけたら「他の人はこちらも検索」欄を表示しない
   chrome.storage.sync.get({
     hiddenOtherSearch: false

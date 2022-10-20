@@ -1,4 +1,4 @@
-const save_options = () => {
+const saveOptions = () => {
   const old1 = {year: document.getElementById('year-1').value, color: document.getElementById('color-1').value};
   const old2 = {year: document.getElementById('year-2').value, color: document.getElementById('color-2').value};
 
@@ -16,7 +16,7 @@ const save_options = () => {
   });
 }
 
-const restore_options = () => {
+const restoreOptions = () => {
   // デフォルト値の設定
   chrome.storage.sync.get({
     old1: {year: 5, color: "#ffb7b7"},
@@ -31,5 +31,5 @@ const restore_options = () => {
   });
 }
 
-document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click', save_options);
+document.addEventListener('DOMContentLoaded', restoreOptions);
+document.getElementById('save').addEventListener('click', saveOptions);
