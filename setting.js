@@ -1,6 +1,13 @@
-const saveOptions = () => {
+const saveOptions = (e) => {
+  e.preventDefault();
+
   const old1 = {year: document.getElementById('year-1').value, color: document.getElementById('color-1').value};
   const old2 = {year: document.getElementById('year-2').value, color: document.getElementById('color-2').value};
+
+  if (Number(old1.year) < Number(old2.year)) {
+    document.getElementById('error').textContent = "1番は2番より過去を入力してください";
+    return
+  }
 
   const hiddenOtherSearch = document.getElementById('hidden-other-search').checked;
   chrome.storage.sync.set({
@@ -32,4 +39,4 @@ const restoreOptions = () => {
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
-document.getElementById('save').addEventListener('click', saveOptions);
+document.getElementById('save').addEventListener('click', (e) => saveOptions(e));
