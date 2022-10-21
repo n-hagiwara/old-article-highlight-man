@@ -23,6 +23,13 @@ const saveOptions = (e) => {
   });
 }
 
+const changeDate = (elem) => {
+  const span = document.getElementById(elem.id.replace("year", "date"));
+  const now = new Date;
+  const past = new Date(now.setFullYear(now.getFullYear() - elem.value));
+  span.textContent = `年前（${past.toLocaleDateString()}）より過去`;
+}
+
 const restoreOptions = () => {
   // デフォルト値の設定
   chrome.storage.sync.get({
@@ -30,13 +37,22 @@ const restoreOptions = () => {
     old2: {year: 2, color: "#ffffb7"},
     hiddenOtherSearch: false
   }, (setting) => {
-    document.getElementById('year-1').value = setting.old1["year"];
-    document.getElementById('year-2').value = setting.old2["year"];
+    const year1 = document.getElementById('year-1');
+    year1.value = setting.old1["year"];
+    changeDate(year1);
+
+    const year2 = document.getElementById('year-2');
+    year2.value = setting.old2["year"];
+    changeDate(year2);
+
     document.getElementById('color-1').value = setting.old1["color"];
     document.getElementById('color-2').value = setting.old2["color"];
+
     document.getElementById('hidden-other-search').checked = setting.hiddenOtherSearch;
   });
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
+document.getElementById('year-1').addEventListener('change', () => {changeDate(document.getElementById('year-1'));});
+document.getElementById('year-2').addEventListener('change', () => {changeDate(document.getElementById('year-2'));});
 document.getElementById('save').addEventListener('click', (e) => saveOptions(e));
